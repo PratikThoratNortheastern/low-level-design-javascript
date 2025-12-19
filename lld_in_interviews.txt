@@ -1,0 +1,46 @@
+  We use the movie ticket booking system as an example to see how to approach any LLD problem.
+  Clarifying the requirements:
+  Generally, any movie booking system will have the following:
+  Users will browse theatres, screens, movies, book seats, pay and get ticket.
+  This system should be able to handle concurrent bookings efficiently.
+  Keep it simple and concise.
+
+  Once you get green signal for the above, you should further clarify more about the features
+  and user flow
+  Will this system have multiple user types like admin, customer, etc?
+  How to handle seat availability and concurrent bookings? (Sync/async stuff)
+  Is payment and ticket generation in the scope?
+
+  These questions can lead you to a more clear path on what to do next.
+  We do not jump directly to code until we get out what the interviewers want
+
+  Assume that interviewers say admin and advanced features are out of scope and payment and concurrency are important. We will not get a clear idea of what use cases and services to focus on. We then list them down for the interviewers.
+
+  Example:
+  1. User search for theatres and movies based on location.
+  2. Movies are mapped to screens and screens to theatres.
+  3. Seats are selected and locked for booking.
+  4. Payment processing confirms booking after successful payments.
+
+  Then we ask the interviewers is this enough or do they have some concerns
+
+
+  Once we are allowed to proceed, we will then move on the next steps and identify entities (classes)
+  In our movie booking system example these can be the some of the entities:
+  Users, Theatres, Movies, Payments, Seats, Shows, Booking
+
+  After Identifying the entities, we can write code for entities and decide what members they will have.
+
+  class Show may have a name, duration, id, etc.
+  class Theatre may have a name, id, location, list of movies it has and list of screens, etc
+
+  Once we are done with this, we start discussing the core methods of the entities.
+  managing booking, concurrency, payment, (methods === functions)
+
+  Some questions may be heavy and extreme on concurrency handling like synchronized locks, distributed locks etc so we may have to introduce them and answer any questions when required.
+
+  Now we move on to discussing design patterns for certain methods.
+  Here the interviewer might expect us to implement the services in full and probably run the code.
+  Be prepared!
+
+  If time permits, we can also talk about exception handling and flex on some more knowledge and have an in-depth discussion about design patterns whys and hows, custom exception handling etc.
