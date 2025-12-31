@@ -4,7 +4,7 @@
 
 1. All solutions will be in JavaScript as of now. I will add Typescript later.
 
-## Table of Contents include:
+## Table of Contents include
 
 1. Object Oriented Programming Principles
 2. Design Patterns Implementations
