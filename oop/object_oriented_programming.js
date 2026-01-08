@@ -57,7 +57,7 @@ class BankAccount {
   }
 }
 
-let account = new BankAccount();
+// let account = new BankAccount();
 // console.log(account.#balance); cannot access balance since it is a private field hence it throws an error
 // console.log(account.balance) even if we do this we get undefined since this property does not exist
 
@@ -112,5 +112,71 @@ let pengu = new Penguin();
 
 //here the methods fly have different implementations all together.
 // This is what it means by Polymorphism.
-console.log(bird.fly());
-console.log(pengu.fly());
+// console.log(bird.fly());
+// console.log(pengu.fly());
+
+// Static methods
+
+class Calculator {
+  // nobody else but this class itself can call this method.
+  static add(a, b) {
+    return a + b;
+  }
+}
+
+// let miniCalc = new Calculator();
+// console.log(miniCalc.add(2, 3)); This line will give an error;
+
+// console.log(Calculator.add(2, 3));
+
+// Getters and Setters
+
+class Employee {
+  #salary;
+  constructor(name, salary) {
+    this.name = name;
+    // the "_" for salary is just a convention
+    this.#salary = salary;
+  }
+
+  get salary() {
+    return `You are not allowed to see salary`;
+  }
+
+  set salary(value) {
+    if (value < 0) {
+      console.error('Invalid Salary');
+    } else {
+      this._salary = value;
+    }
+  }
+}
+
+// let emp1 = new Employee('Alice', 150_000);
+// We do not put () after salary because getters and setters are special methods and do not require them
+// console.log(emp1.name, emp1.salary);
+// emp1.salary = -50000;
+
+class SecureAccount {
+  #balance;
+
+  constructor(amount) {
+    this.balance = amount;
+  }
+
+  get balance() {
+    return this.#balance;
+  }
+
+  set balance(amount) {
+    this.#balance = amount < 0 ? 0 : amount;
+  }
+}
+
+const account = new SecureAccount(500);
+console.log(account.balance); // 500 (Works via the getter)
+// using the setter;
+account.balance = -120;
+console.log(account.balance);
+account.balance = 400;
+console.log(account.balance);
