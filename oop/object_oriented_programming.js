@@ -92,3 +92,25 @@ class CoffeeMachine {
 let coffeeMachine = new CoffeeMachine();
 console.log(coffeeMachine.pressStartButton()); //here we see that we don't care about how the startButton was implemented
 // We only care about the working and not the implementations. Those are hidden from the users.
+
+// Ploymorphism:
+
+class Bird {
+  fly() {
+    return `Flying`;
+  }
+}
+
+class Penguin extends Bird {
+  fly() {
+    return `Penguins can't fly :(`;
+  }
+}
+
+let bird = new Bird();
+let pengu = new Penguin();
+
+//here the methods fly have different implementations all together.
+// This is what it means by Polymorphism.
+console.log(bird.fly());
+console.log(pengu.fly());
