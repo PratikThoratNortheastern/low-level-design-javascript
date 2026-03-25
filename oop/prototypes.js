@@ -18,25 +18,31 @@ console.log(Object.getPrototypeOf(tesla));
 
 // Another way to sort of add prototypes
 
-const functionBundle = {
-  addMoney: function () {
-    this.accountBalance++;
-  },
-  fetchBalance: function () {
-    console.log(`The balance is ${this.accountBalance}`);
-  },
-};
+// const functionBundle = {
+//   addMoney: function () {
+//     this.accountBalance++;
+//   },
+//   fetchBalance: function () {
+//     console.log(`The balance is ${this.accountBalance}`);
+//   },
+// };
 
-function createCustomer(name, accountBalance, branch) {
-  const customer = Object.create(functionBundle);
-  customer.name = name;
-  customer.accountBalance = accountBalance;
-  customer.branch = branch;
-
-  return customer;
+function CreateCustomer(name, accountBalance, branch) {
+  // const customer = Object.create(functionBundle);
+  this.name = name;
+  this.accountBalance = accountBalance;
+  this.branch = branch;
 }
 
-const customer1 = createCustomer('Allan', 10_000_000_000, 'Malad West');
+CreateCustomer.prototype.fetchBalance = function () {
+  return `The account balance is ${this.accountBalance}`;
+};
+
+CreateCustomer.prototype.addMoney = function () {
+  return this.accountBalance++;
+};
+
+const customer1 = new CreateCustomer('Allan', 10_000_000_000, 'Malad West');
 customer1.addMoney();
 customer1.addMoney();
 customer1.fetchBalance();
