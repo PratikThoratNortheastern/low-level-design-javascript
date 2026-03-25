@@ -90,7 +90,7 @@ class CoffeeMachine {
 }
 
 let coffeeMachine = new CoffeeMachine();
-console.log(coffeeMachine.pressStartButton()); //here we see that we don't care about how the startButton was implemented
+// console.log(coffeeMachine.pressStartButton()); here we see that we don't care about how the startButton was implemented
 // We only care about the working and not the implementations. Those are hidden from the users.
 
 // Ploymorphism:
@@ -174,9 +174,35 @@ class SecureAccount {
 }
 
 const account = new SecureAccount(500);
-console.log(account.balance); // 500 (Works via the getter)
-// using the setter;
-account.balance = -120;
-console.log(account.balance);
-account.balance = 400;
-console.log(account.balance);
+// console.log(account.balance); // 500 (Works via the getter)
+// // using the setter;
+// account.balance = -120;
+// console.log(account.balance);
+// account.balance = 400;
+// console.log(account.balance);
+
+// Another example:
+
+class CreateCustomer {
+  constructor(name, accountBalance, branch) {
+    this.name = name;
+    this.accountBalance = accountBalance;
+    this.branch = branch;
+  }
+
+  fetchAccountBalance() {
+    console.log(
+      `The account balance for ${this.name} is ${this.accountBalance}`,
+    );
+  }
+
+  addMoney() {
+    this.accountBalance = this.accountBalance + 100;
+    return this.accountBalance;
+  }
+}
+
+const newCustomer1 = new CreateCustomer('Pratik', 10_000, 'Boston');
+newCustomer1.addMoney();
+newCustomer1.fetchAccountBalance();
+console.table(newCustomer1);
