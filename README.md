@@ -2,15 +2,12 @@
 
 ## Some bits
 
-1. All solutions will be in JavaScript as of now. I will add Typescript later.
+Langauge of choice here is Typescript
 
 ## Table of Contents include
 
-1. Object Oriented Programming Principles
-2. Design Patterns Implementations
-3. Implementation of Popular Low Level Design Questions in JavaScript
-
-## Future Scope
-
-1. TypeScript Implementations
-2. GUI based Implementations (Probably in Vanilla JavaScript and React)
+1. Object Oriented Programming Concepts
+2. Concurrency (notes and simulation for most part since JS/TS are not multi-threaded languages)
+3. Design Principle (SOLID, KISS, DRY, YAGNI notes)
+4. Design Patterns Implementations
+5. Implementation of Popular Low Level Design Questions
